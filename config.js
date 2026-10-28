@@ -1,7 +1,7 @@
 // ─── Edit these values for your Salesforce org ────────────────────────────────
 export const CONFIG = {
   // Consumer Key of your Salesforce External Client App (or Connected App).
-  clientId: "3MVG9szVa2RxsqBbLdHxYuJESe5Tgi7n.9VOGfn.vXqZaQqUnsl6akIqiFSf_zSmCAQH.cvxU85mMlkwycjf",
+  clientId: "3MVG9szVa2RxsqBbLdHxYuJESe5Tgi7n.9VOGfn.vXqZaQqUnsl6akIqiFSf_zSmCAQH.cvxU85mMlkwycjf.",
 
   // Where users sign in. Use your My Domain for production, e.g.
   // "https://surfaceoptics.my.salesforce.com", or "https://test.salesforce.com" for a sandbox.

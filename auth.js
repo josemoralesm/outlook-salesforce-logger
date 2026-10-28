@@ -142,7 +142,8 @@ export async function refreshSession() {
   }
   try {
     const t = await tokenRequest({ grant_type: "refresh_token", client_id: CONFIG.clientId, refresh_token: s.refreshToken });
-    const next = { ...s, accessToken: t.access_token, instanceUrl: t.instance_url || s.instanceUrl };
+    // Salesforce may rotate the refresh token; keep the newest one.
+    const next = { ...s, accessToken: t.access_token, refreshToken: t.refresh_token || s.refreshToken, instanceUrl: t.instance_url || s.instanceUrl };
     saveSession(next);
     return next;
   } catch {

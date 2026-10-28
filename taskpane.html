@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log to Salesforce</title>
+  <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+  <link rel="stylesheet" href="taskpane.css">
+  <script type="module" src="taskpane.js"></script>
+</head>
+<body>
+  <header class="bar">
+    <img src="assets/icon-32.png" alt="" width="20" height="20">
+    <span class="bar-title">Log to Salesforce</span>
+    <span id="account" class="bar-account" hidden>
+      <span id="account-host"></span>
+      <button id="signout-btn" class="link" type="button">Sign out</button>
+    </span>
+  </header>
+
+  <main>
+    <div id="error" class="banner banner-error" role="alert" hidden></div>
+
+    <section id="view-loading" class="view center" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p class="muted">Looking up Salesforce…</p>
+    </section>
+
+    <section id="view-signin" class="view center" hidden>
+      <p>Connect your Salesforce account to log emails, meetings and files.</p>
+      <button id="signin-btn" class="primary" type="button">Sign in to Salesforce</button>
+    </section>
+
+    <section id="view-empty" class="view center" hidden>
+      <p class="muted">Select an email or meeting to log it.</p>
+    </section>
+
+    <section id="view-main" class="view" hidden>
+      <div id="summary" class="card"></div>
+      <div id="logged"></div>
+
+      <h2>Name <span class="hint">who it was with</span></h2>
+      <div id="people" class="list"></div>
+
+      <h2>Related to <span class="hint">account, opportunity or case</span></h2>
+      <div id="related" class="list"></div>
+      <input id="search" type="search" placeholder="Search accounts, opportunities, cases…" autocomplete="off">
+      <div id="search-results" class="list"></div>
+
+      <h2>Include</h2>
+      <div id="options" class="list"></div>
+    </section>
+  </main>
+
+  <footer id="actions" class="actions" hidden>
+    <div id="status" class="muted" aria-live="polite"></div>
+    <button id="log-btn" class="primary" type="button"></button>
+  </footer>
+</body>
+</html>

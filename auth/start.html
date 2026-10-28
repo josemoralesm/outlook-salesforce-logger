@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Signing in to Salesforce…</title>
+  <style>body{font-family:"Segoe UI",system-ui,sans-serif;padding:24px;color:#333}</style>
+</head>
+<body>
+  <p id="msg">Redirecting to Salesforce…</p>
+  <script type="module">
+    import { CONFIG } from "../config.js";
+    const u = new URLSearchParams(location.search).get("u") || "";
+    // Only ever redirect to this org's authorize endpoint.
+    if (u.startsWith(`${CONFIG.loginUrl}/services/oauth2/authorize?`)) {
+      location.replace(u);
+    } else {
+      document.getElementById("msg").textContent = "Invalid sign-in request. Close this window and try again.";
+    }
+  </script>
+</body>
+</html>
